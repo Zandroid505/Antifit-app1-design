@@ -5,39 +5,42 @@
 
 package mainApp;
 
-import javafx.scene.control.TableView;
-import java.time.LocalDate;
+import javafx.beans.property.SimpleStringProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ToDoList {
-    private String title;
-    private TableView<String> descriptions;
-    private TableView<LocalDate> dueDate;
+    private SimpleStringProperty title;
+    private List<Task> listTasks = new ArrayList<>();
 
     public ToDoList(String title) {
-        //Assign name to parameter
+        //Assign title to parameter (call SimpleStringProperty constructor)
     }
 
     public String getTitle() {
+        return title.get();
+    }
+
+    public SimpleStringProperty titleProperty() {
         return title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title.set(title);
     }
 
-    public TableView<String> getDescriptions() {
-        return descriptions;
-    }
+    public String createOutputListString(List<ToDoList> toDoListsToSave) {
+        //StringBuilder outputFileString
 
-    public void setDescriptions(TableView<String> descriptions) {
-        this.descriptions = descriptions;
-    }
+        //for(amnt of toDoLists)
+            //outputFileString = "'title'\n"
+            //for(amount of tasks in current to do list)
+                //outputFileString = "'deadline'" + "'description'"
+            //outputFileString = "\n"
 
-    public TableView<LocalDate> getDueDate() {
-        return dueDate;
-    }
+        //return string of outputFileString
 
-    public void setDueDate(TableView<LocalDate> dueDate) {
-        this.dueDate = dueDate;
+        return "";
     }
 }
