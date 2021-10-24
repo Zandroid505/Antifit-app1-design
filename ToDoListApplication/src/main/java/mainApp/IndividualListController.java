@@ -1,9 +1,20 @@
+/*
+ *  UCF COP3330 Fall 2021 Application Assignment 1 Solution
+ *  Copyright 2021 first_name last_name
+ */
+
 package mainApp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -22,6 +33,12 @@ public class IndividualListController implements Initializable {
 
     public void goBackToListMenu(ActionEvent backButton) throws IOException {
         //Switch scene back to List menu
+        Parent listMenuParent = FXMLLoader.load(getClass().getResource("ToDoListMenu.fxml"));
+        Stage stage = (Stage)((Node)backButton.getSource()).getScene().getWindow();
+        Scene listMenuScene = new Scene(listMenuParent);
+
+        stage.setScene(listMenuScene);
+        stage.show();
     }
 
     @Override

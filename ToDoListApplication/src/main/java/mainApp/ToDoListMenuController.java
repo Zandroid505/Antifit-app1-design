@@ -7,8 +7,14 @@ package mainApp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,8 +43,15 @@ public class ToDoListMenuController implements Initializable {
 
     public void openList(ActionEvent openListButtonPressed) throws IOException {
         //if(list is selected and openListButton is selected)
-            //Pass currently selected toDoList objects to createOutputListString()
+            //Pass currently selected toDoList object to IndividualListController
             //Switch to individualList scene (fxml file) pass title name
+
+        Parent individualListViewParent = FXMLLoader.load(getClass().getResource("IndividualList.fxml"));
+        Stage stage = (Stage)((Node)openListButtonPressed.getSource()).getScene().getWindow();
+        Scene individualListViewScene = new Scene(individualListViewParent);
+
+        stage.setScene(individualListViewScene);
+        stage.show();
     }
 
     public void deleteList(ActionEvent delListButtonPressed) {
@@ -61,7 +74,7 @@ public class ToDoListMenuController implements Initializable {
             //Save to location
     }
 
-    public void openPreviouslySavedData(ActionEvent openSavedFileButtonPressed) {
+    public void openPreviouslySavedLists(ActionEvent openSavedFileButtonPressed) {
         //Open file explorer
         //Let user open .txt file
         //Populate listView with .txt file
