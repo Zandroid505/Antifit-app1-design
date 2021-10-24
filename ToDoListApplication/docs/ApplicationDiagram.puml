@@ -1,0 +1,73 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Task *-- ToDoList
+javafx.application.Application <|-- Application
+class ToDoListMenuController implements javafx.fxml.Initializable
+class IndividualListController implements javafx.fxml.Initializable
+
+class ToDoList {
+    - title: SimpleStringProperty
+    - listTasks: ArrayList<Task>
+
+    + ToDoList(String)
+    + getTitle(): String
+    + setTitle(String): void
+
+    + createOutputListString(List<ToDoList>): String
+}
+
+class Task {
+    - description: SimpleStringProperty
+    - deadline: LocalDate
+    - completion: CheckBox
+    - {static} amntOfTasks: int
+
+    + Task(String, LocalDate)
+    + getDescription(): String
+    + setDescription(String): void
+    + getDeadline(): String
+    + setDeadline(String): void
+    + getCompletion(): CheckBox
+    + setCompletion(CheckBox): void
+}
+
+class Application {
+    + start(Stage): void
+    + {static} main(String[]): void
+}
+
+class ToDoListMenuController {
+    - toDoListView: ListView<ToDoList>
+    - newListTitle: TextField
+
+    + initialize(URL, ResourceBundle): void
+    + addNewList(ActionEvent): void
+    - refresh(): void
+    + openList(ActionEvent): void
+    + deleteList(ActionEvent): void
+    + editTitle(ActionEvent): void
+    + saveSelectedLists(ActionEvent): void
+    + openPreviouslySavedData(ActionEvent): void
+}
+
+class IndividualListController {
+    - titleLabel: Label
+    - descriptionTextField: TextField
+    - deadlineTextField: TextField
+    - listTableView: TableView<ToDoList>
+    - descriptionColumn: TableColumn<ToDoList, String>
+    - deadlineColumn: TableColumn<ToDoList, LocalDate>
+    - taskCompletion: TableColumn<ToDoList, CheckBox>
+
+    + goBackToListMenu(ActionEvent): void
+    + initialize(URL, ResourceBundle): void
+    + addNewTask(ActionEvent): void
+    + deleteTask(ActionEvent): void
+    + showCompletedTasks(ActionEvent): void
+    + showIncompleteTasks(ActionEvent): void
+}
+
+
+
+@enduml

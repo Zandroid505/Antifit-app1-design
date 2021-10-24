@@ -5,27 +5,17 @@
 
 package mainApp;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import mainApp.ToDoList;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ToDoListMenuController implements Initializable {
     //Configure opening to-do list menu
-    @FXML private ListView<ToDoList> toDoListListView;
+    @FXML private ListView<ToDoList> toDoListView;
     @FXML private TextField newListTitle;
 
     @Override

@@ -2,12 +2,13 @@ package mainApp;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
 
 public class Task {
     private SimpleStringProperty description;
-    private LocalDate deadline;
+    private SimpleStringProperty deadline;
     private CheckBox completion;
     private static int amntOfTasks;
 
@@ -22,20 +23,16 @@ public class Task {
         return description.get();
     }
 
-    public SimpleStringProperty descriptionProperty() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description.set(description);
     }
 
-    public LocalDate getDeadline() {
-        return deadline;
+    public String getDeadline() {
+        return deadline.get();
     }
 
-    public void setDeadline(LocalDate deadline) {
-        this.deadline = deadline;
+    public void setDeadline(String deadline) {
+        this.deadline.set(deadline);
     }
 
     public CheckBox getCompletion() {

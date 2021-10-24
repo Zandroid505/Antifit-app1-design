@@ -45,8 +45,8 @@
                <children>
                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="383.0" promptText="Task description" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#addNewTask" text="Add" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
-                  <TextField fx:id="dueDatePicker" promptText="YYYY-MM-DD" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                  <TextField fx:id="deadlineTextField" promptText="YYYY-MM-DD" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#deleteTask" text="Delete" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
                </children>
             </GridPane>
             <HBox maxHeight="-Infinity" prefHeight="27.0" prefWidth="600.0">
